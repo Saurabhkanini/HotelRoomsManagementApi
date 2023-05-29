@@ -8,7 +8,6 @@ namespace HotelManagementApi.Repository
         //created methods for get,getbyid,getbyname,addhotel ,update hotel ,delete hotel
         IEnumerable<Hotel> GetAllHotels();
         Hotel GetHotelById(int id);
-        Hotel GetHotelByName(string name);
         Hotel AddHotel(Hotel hotel);
         Hotel UpdateHotel(Hotel hotel ,int id);
         Hotel DeleteHotel(int id);

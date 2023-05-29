@@ -42,7 +42,7 @@ namespace HotelManagementApi.Controllers
             return Ok(icontroller.AddRoom(r));
 
         }
-        [HttpPut,Authorize(Roles ="manager")]
+        [HttpPut("{id}"),Authorize(Roles ="manager")]
         [AllowAnonymous]
         public async Task<ActionResult> UpdateRoom(Room room,int id)
         {
@@ -55,7 +55,7 @@ namespace HotelManagementApi.Controllers
         [HttpDelete("{id}"),Authorize(Roles ="manager")]
         public async Task<ActionResult> DeleteRoom(int id)
         {
-            if (!User.Identity.IsAuthenticated || !User.IsInRole("admin"))
+            if (!User.Identity.IsAuthenticated || !User.IsInRole("manager"))
             {
                 return Unauthorized("You are Not authorized");
             }

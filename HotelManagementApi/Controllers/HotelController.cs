@@ -39,15 +39,8 @@ namespace HotelManagementApi.Controllers
                 return Ok( hotel);  
             return NotFound("Hotel Not found");
         }
-        [HttpGet("{HotelName}")]
-        public  async Task<ActionResult> Get(string name)
-        {
-            var hotel =  icontroller.GetHotelByName(name);
-            if(hotel != null)
-                return Ok(hotel);
-            return NotFound("Hotel Not found");
-        }
-        [HttpPut, Authorize(Roles = "admin")]
+
+        [HttpPut("{id}"), Authorize(Roles = "admin")]
         [AllowAnonymous]
 
         public async Task<ActionResult> UpdateHotell(Hotel hotel,int id)
@@ -58,7 +51,7 @@ namespace HotelManagementApi.Controllers
             }
             return Ok(icontroller.UpdateHotel(hotel,id));
         }
-        [HttpDelete, Authorize(Roles = "admin")]
+        [HttpDelete("{id}"), Authorize(Roles = "admin")]
         [AllowAnonymous]
         public async Task<ActionResult> Delete(int id)
         {
@@ -71,15 +64,5 @@ namespace HotelManagementApi.Controllers
                 return Ok(hotel);
             return BadRequest("Hotel not found");
         }
-
-      
-
-
-
-
-
-
-
-
     }
 }

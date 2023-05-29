@@ -26,11 +26,7 @@ namespace HotelManagementApi.Repository
             var hotel = hotelDbContext.Hotels.Find(id);
             return hotel;
         }
-        public Hotel GetHotelByName(string name)
-        {
-            var hotel = hotelDbContext.Hotels.FirstOrDefault(x => x.HotelName == name);
-            return hotel;
-        }
+      
         public Hotel AddHotel(Hotel hotel)
         {
             hotelDbContext.Hotels.Add(hotel);
