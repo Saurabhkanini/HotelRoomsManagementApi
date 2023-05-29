@@ -85,7 +85,11 @@ namespace HotelManagementApi.Controllers
 
             return Ok(filteredHotels);
         }
+<<<<<<< HEAD
         [HttpGet("{id}")]
+=======
+        [HttpGet]
+>>>>>>> origin/master
         public async Task<IActionResult> GetRoomCountByHotel(int id)
         {
             var hotel = await hotelDbContext.Hotels.Include(h => h.Rooms).FirstOrDefaultAsync(h => h.Id == id);
@@ -97,7 +101,11 @@ namespace HotelManagementApi.Controllers
 
             var roomCount = hotel.Rooms.Count;
 
+<<<<<<< HEAD
             return Ok($"Totoal Number of Room Added with Hotel id {id} is  {roomCount}");
+=======
+            return Ok($"Totoal Number of RoomBooked with Hotel id {id} with id {roomCount}");
+>>>>>>> origin/master
         }
     }
 }
